@@ -1,0 +1,27 @@
+<div style="height: 90vh;" class="d-flex justify-content-center align-items-center">
+    <div>
+        <div style="background-color: #5940d866;" class="row rounded mm p-5">
+            <div class="col-lg-6">
+                <img class="img-fluid" src="https://cdni.iconscout.com/illustration/premium/thumb/login-page-4468581-3783954.png?f=webp" alt="">
+            </div>
+            <div class="col-lg-6">
+                <form style="height: 100%;" #loginForm="ngForm" (ngSubmit)="login()">
+                <div style="height: 100%;"  class="d-flex flex-column justify-content-center align-items-center border rounded p-4">
+                    <h2 class="text-center" style="font-size: 40px;font-weight: 800;color: rgb(27, 23, 65);">LOGIN</h2>
+                    
+                        <input #usermail="ngModel" name="email" [(ngModel)]="email" type="text" class="form-control mb-2" placeholder="Email Address" email required>
+                        <div *ngIf="usermail.invalid && usermail.touched" class="text-danger mb-3">
+                            * Invalid Email
+                        </div>
+                        <input #userpswd="ngModel" name="password" [(ngModel)]="password" type="password" class="form-control mb-4" placeholder="Password" pattern="[a-zA-Z0-9]*" minlength="8" required>
+                        <div *ngIf="userpswd.invalid && userpswd.touched" class="text-danger mb-3">
+                            * Invalid Password
+                        </div>
+                        <button type="submit" [disabled]="loginForm.invalid" class="btn btn-success w-100">Login</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

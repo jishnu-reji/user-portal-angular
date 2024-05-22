@@ -1,0 +1,34 @@
+<div class="container-fluid">
+    <div class="row">
+        <div *ngIf="sidebarStatus" style="height: 95vh;width: fit-content;" class="col-lg-2 bg-dark d-flex flex-column p-3">
+            <a style="text-decoration: none;color: white;" class="mb-3 fw-bolder" routerLink="/dashboard">Home</a>
+            <a style="text-decoration: none;color: white;" class="mb-3 fw-bolder" routerLink="/users">Users</a>
+            <a (click)="logout()" style="color: white;" class="mt-auto fw-bolder" routerLink="/users">Logout</a>
+        </div>
+        <div class="col">
+            <div class="row mt-2">
+                <div class="col-lg-8">
+                    <div style="height: 140px;background-image: url(https://static.vecteezy.com/system/resources/previews/000/694/606/original/abstract-colorful-geometric-banner-template-background-vector.jpg);background-size: cover;" class="banner rounded p-3 d-flex align-items-center shadow">
+                         <h1><button (click)="menuClicked()" class="btn"><i class="fa-solid fa-bars text-light"></i></button> Welcome {{adminName}}</h1>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-lg-6">
+                            <app-calander></app-calander>
+                        </div>
+                        <div class="col-lg-6">
+                            <app-chart></app-chart>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div style="height:430px;" class="rounded p-2 border shadow">
+                        <app-edit-admin (onAdminChange)="adminChange($event)"></app-edit-admin>
+                    </div>
+                    <div style="height: 200px;background-image: url(https://static.vecteezy.com/system/resources/previews/000/694/606/original/abstract-colorful-geometric-banner-template-background-vector.jpg);background-size: cover;" class="banner rounded p-3 mt-3 d-flex align-items-center shadow">
+                        <h1><i class="fa-solid fa-users text-light"></i> All Users : {{userCount}}</h1>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
